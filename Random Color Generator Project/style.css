@@ -1,0 +1,53 @@
+body{
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: url(https://as2.ftcdn.net/v2/jpg/11/87/44/99/1000_F_1187449989_ceQqSPxfSkyTQ24ei9L3oP2ZaA1qeu0c.jpg);
+    background-size: contain;
+}
+
+h1{
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#refresh-button {
+    background-color: #4CAF50;
+    color: #fff; 
+    padding: 10px 20px;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+  }
+  
+#refresh-button:hover {
+    background-color: #3e8e41; 
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.color-container{
+    background-color: gold;
+    width: 300px;
+    height: 150px;
+    color: antiquewhite;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border: solid black 1px;
+    border-radius: 10px;
+}
