@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.input {
+    visibility: hidden;
+}
+
+.label {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    background-color: lightgray;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.circle {
+    width: 34px;
+    background-color: yellow;
+    height: 34px;
+    border-radius: 50%;
+    top: 3px;
+    position: absolute;
+    left: 3px;
+    animation: toggleOff 0.4s linear forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sun-icon {
+    font-size: 20px;
+    color: #ff9900;
+    display: block;
+}
+
+#moon-icon {
+    font-size: 20px;
+    color: pink;
+    display: none;
+}
+
+.input:checked + .label {
+    background-color: white;
+}
+
+.input:checked + .label .circle {
+    animation: toggleOn 0.4s linear forwards;
+    background-color: purple;
+}
+
+.input:checked + .label .circle #sun-icon {
+    display: none;
+}
+
+.input:checked + .label .circle #moon-icon {
+    display: block;
+}
+
+.input:not(:checked) + .label .circle #sun-icon {
+    display: block;
+}
+
+.input:not(:checked) + .label .circle #moon-icon {
+    display: none;
+}
+
+@keyframes toggleOn {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(40px);
+    }
+}
+
+@keyframes toggleOff {
+    0% {
+        transform: translateX(40px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.light-mode {
+    background-color: #f0f0f0;
+}
+
+.dark-mode {
+    background-color: #333;
+}
