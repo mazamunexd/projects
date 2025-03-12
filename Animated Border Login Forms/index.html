@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Border Login Form | Coding Vibess</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="box">
+        <div class="border-line"></div>
+        
+        <!-- Login Form -->
+        <form id="login-form" action="#">
+            <h2>Sign in</h2>
+            <div class="input-box">
+                <input type="text" id="username" required="required" />
+                <span>Username</span>
+                <i></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="password" required="required" />
+                <span>Password</span>
+                <i></i>
+            </div>
+            <div class="imp-links">
+                <a href="#" id="forget-password">Forget Password</a>
+                <a href="#" id="sign-up">Sign up</a>
+            </div>
+            <input type="submit" value="Login" class="btn" />
+        </form>
+
+        <!-- Sign Up Form -->
+        <form id="sign-up-form" style="display: none;" action="#">
+            <h2>Create Account</h2>
+            <div class="input-box">
+                <input type="text" id="sign-up-username" required="required" />
+                <span>Username</span>
+                <i></i>
+            </div>
+            <div class="input-box">
+                <input type="email" id="sign-up-email" required="required" />
+                <span>Email</span>
+                <i></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="sign-up-password" required="required" />
+                <span>Password</span>
+                <i></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="sign-up-confirm-password" required="required" />
+                <span>Confirm Password</span>
+                <i></i>
+            </div>
+            <input type="submit" value="Create Account" class="btn" />
+            <button id="already-have-account" class="btn" style="margin-top: 10px;">Already have an account?</button>
+        </form>
+
+        <!-- Forget Password Form -->
+        <form id="forget-password-form" style="display: none;" action="#">
+            <h2>Forget Password</h2>
+            <div class="input-box">
+                <input type="email" id="forget-password-email" required="required" placeholder="Enter your email" />
+                <span>Email</span>
+                <i></i>
+            </div>
+            <input type="submit" value="Send" class="btn" />
+            <div class="imp-links">
+                <a href="#" id="sign-up-from-forgot">Sign up</a>
+                <a href="#" id="back-to-login">Back to Login</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

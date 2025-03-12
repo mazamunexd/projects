@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&display=swap');
 
 body{
-    margin: 0;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    height: 100vh;
     align-items: center;
-    background-color: darkorchid;
+    justify-content: center;
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXxGgXQAmvJK21kHI9Q9uZgVuaB5PDbUH6Fw&s);
+    background-size: cover;
     font-family: "Big Shoulders Inline", sans-serif;
 }
