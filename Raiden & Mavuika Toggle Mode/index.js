@@ -1,26 +1,25 @@
-// index.js
 const inputEl = document.querySelector(".input");
 const bodyEl = document.querySelector("body");
 
-inputEl.checked = JSON.parse(localStorage.getItem("mode"));
+inputEl.checked = JSON.parse(localStorage.getItem("mode")) || false;
 
 updateBody();
 
 function updateBody() {
-  if (inputEl.checked) {
-    bodyEl.classList.remove("light-mode");
-    bodyEl.classList.add("dark-mode");
-  } else {
-    bodyEl.classList.remove("dark-mode");
-    bodyEl.classList.add("light-mode");
-  }
+    if (inputEl.checked) {
+        bodyEl.classList.remove("light-mode");
+        bodyEl.classList.add("dark-mode");
+    } else {
+        bodyEl.classList.remove("dark-mode");
+        bodyEl.classList.add("light-mode");
+    }
 }
 
 inputEl.addEventListener("input", () => {
-  updateBody();
-  updateLocalStorage();
+    updateBody();
+    updateLocalStorage();
 });
 
 function updateLocalStorage() {
-  localStorage.setItem("mode", JSON.stringify(inputEl.checked));
+    localStorage.setItem("mode", JSON.stringify(inputEl.checked));
 }
