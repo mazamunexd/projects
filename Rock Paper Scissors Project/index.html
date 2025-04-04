@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            background-image: linear-gradient(to bottom, #3a3d41, #2f3436, #1a1d23);
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .choice {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 50%;
+            background-size: cover;
+            display: inline-block;
+        }
+        
+        #rock {
+            background-image: url('https://atlas-content-cdn.pixelsquid.com/stock-images/rock-stone-AvXzl49-600.jpg');
+        }
+        
+        #paper {
+            background-image: url('https://media.istockphoto.com/id/1190524331/vector/cartoon-blank-piece-of-paper.jpg?s=612x612&w=0&k=20&c=wwGUr-995O4LVau-ZdWKhxOmjVVtQCkPiHodBRzIvmo=');
+        }
+        
+        #scissors {
+            background-image: url('https://img.freepik.com/free-vector/scissors-tool-icon_24877-83277.jpg');
+        }
+        
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #fff;
+        }
+        
+        #score {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #fff;
+        }
+        
+        #reset {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #reset:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: #fff;">Rock Paper Scissors</h1>
+    <div id="choices">
+        <div id="rock" class="choice" onclick="playGame('rock')"></div>
+        <div id="paper" class="choice" onclick="playGame('paper')"></div>
+        <div id="scissors" class="choice" onclick="playGame('scissors')"></div>
+    </div>
+    <div id="result"></div>
+    <div id="score">Wins: 0 | Losses: 0 | Ties: 0</div>
+    <button id="reset" onclick="resetGame()">Reset</button>
+
+    <script>
+        let wins = 0;
+        let losses = 0;
+        let ties = 0;
+
+        function playGame(playerMove) {
+            const computerMove = getComputerMove();
+            const result = determineResult(playerMove, computerMove);
+            displayResult(playerMove, computerMove, result);
+            updateScore(result);
+        }
+
+        function getComputerMove() {
+            const randomNumber = Math.random();
+            if (randomNumber < 1/3) {
+                return 'rock';
+            } else if (randomNumber < 2/3) {
+                return 'paper';
+            } else {
+                return 'scissors';
+            }
+        }
+
+        function determineResult(playerMove, computerMove) {
+            if (playerMove === computerMove) {
+                return 'Tie';
+            } else if ((playerMove === 'rock' && computerMove === 'scissors') ||
+                       (playerMove === 'paper' && computerMove === 'rock') ||
+                       (playerMove === 'scissors' && computerMove === 'paper')) {
+                return 'Win';
+            } else {
+                return 'Lose';
+            }
+        }
+
+        function displayResult(playerMove, computerMove, result) {
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = `You picked ${playerMove}. Computer picked ${computerMove}. You ${result}`;
+        }
+
+        function updateScore(result) {
+            if (result === 'Win') {
+                wins++;
+            } else if (result === 'Lose') {
+                losses++;
+            } else {
+                ties++;
+            }
+            const scoreElement = document.getElementById('score');
+            scoreElement.innerHTML = `Wins: ${wins} | Losses: ${losses} | Ties: ${ties}`;
+        }
+
+        function resetGame() {
+            wins = 0;
+            losses = 0;
+            ties = 0;
+            const scoreElement = document.getElementById('score');
+            scoreElement.innerHTML = `Wins: ${wins} | Losses: ${losses} | Ties: ${ties}`;
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = '';
+        }
+    </script>
+</body>
+</html>
