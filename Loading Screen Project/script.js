@@ -8,6 +8,8 @@ let images = [
 
 let currentImageIndex = 0;
 let loadingImage = document.getElementById("loading-image");
+let backgroundMusic = document.getElementById("background-music");
+let loadingText = document.getElementById("loading-text");
 
 function showImage() {
     loadingImage.src = images[currentImageIndex];
@@ -24,3 +26,16 @@ function showImage() {
 }
 
 showImage();
+
+// Play the music muted initially
+backgroundMusic.play().catch(error => {
+    console.error("Autoplay was prevented:", error);
+});
+
+// Add click event to loading text to play audio
+loadingText.addEventListener('click', () => {
+    backgroundMusic.muted = false; // Unmute the music
+    backgroundMusic.play().catch(error => {
+        console.error("Playback failed:", error);
+    });
+});
